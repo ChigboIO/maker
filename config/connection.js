@@ -27,6 +27,4 @@ sequelize
     console.log(`Unable to connect to the database: ${err}`);
   });
 
-console.log("In the connection file");
-
 module.exports = sequelize;

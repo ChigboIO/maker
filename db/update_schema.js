@@ -1,13 +1,12 @@
 'use strict';
 
-const sequelize = require('./config/connection');
+const sequelize = require('../config/connection');
 const fs = require('fs');
 const util = require('util');
 const _ = require('lodash');
 const Utils = require('sequelize/lib/utils');
 
 module.exports = () => {
-  console.log('In the database file');
   let data = {};
   const writeToSchemaFile = (tableName, attributes) => {
     const newObj = {};
@@ -16,8 +15,8 @@ module.exports = () => {
 
     const content = `'use strict';
 
-  module.exports = ${util.inspect(data, false, null)};
-  `;
+module.exports = ${util.inspect(data, false, null)};
+`;
 
     fs.writeFile('./db/schema.js', content, err => {
       if (err) return console.log(err);

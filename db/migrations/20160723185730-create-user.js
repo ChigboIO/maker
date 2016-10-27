@@ -3,13 +3,8 @@
 
 const updateSchema = require('../update_schema');
 
-console.log('In the user migration file');
-updateSchema();
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    console.log('In the "up" function of the user migration');
-    updateSchema();
-
     return queryInterface.createTable('users', {
       id: {
         allowNull: false,
@@ -37,9 +32,9 @@ module.exports = {
     }, {
       // paranoid: true,
       underscored: true
-    });
+    }).then(updateSchema);
   },
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('users').then(updateSchema);
   }
 };

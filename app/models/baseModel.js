@@ -16,7 +16,9 @@ fs
   .forEach(file => {
     const modelName = file.split('.')[0];
     /* eslint-disable no-unused-vars */
-    var model = sequelize.import(modelName, (seq, Types) => seq.define(modelName, Schema[modelName]));
+    const model = sequelize.import(modelName, (seq, Types) => {
+      return seq.define(modelName, Schema[modelName]);
+    });
     /* eslint-enable no=unused-vars */
     Model[modelName] = model;
   });

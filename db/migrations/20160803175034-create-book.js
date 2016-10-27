@@ -1,9 +1,11 @@
 /* eslint-disable object-shorthand, func-names, no-unused-vars*/
 'use strict';
 
+const updateSchema = require('../update_schema');
+
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('Books', {
+    return queryInterface.createTable('books', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -30,9 +32,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }).then(updateSchema);
   },
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Books');
+    return queryInterface.dropTable('books').then(updateSchema);
   }
 };
