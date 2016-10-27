@@ -1,0 +1,29 @@
+{
+  "name": "jano",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "lint": "eslint .",
+    "test": "mocha __test__/**/*.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "express": "~4.13.4",
+    "lodash": "^4.16.4",
+    "morgan": "~1.7.0",
+    "pug": "^2.0.0-beta4",
+    "sequelize": "sequelize/sequelize",
+    "sqlite3": "^3.1.4",
+    "umzug": "^1.11.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb-base": "^5.0.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  }
+}
